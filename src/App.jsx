@@ -7,6 +7,7 @@ function App() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
+  const [sessionId] = useState(() => crypto.randomUUID()) // Generate session ID once
 
   const handleSend = async (e) => {
     e.preventDefault()
@@ -26,7 +27,7 @@ function App() {
       const res = await fetch('https://tejasworking.app.n8n.cloud/webhook/legal-assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: input }),
+        body: JSON.stringify({ prompt: input, sessionId }), // Include sessionId here
       })
       const data = await res.json()
       
