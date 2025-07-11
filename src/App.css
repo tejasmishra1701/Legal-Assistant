@@ -94,6 +94,7 @@ body {
   flex-direction: column;
   gap: 16px;
   scroll-behavior: smooth;
+  overflow-y: auto;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease 0.3s;
@@ -491,4 +492,33 @@ body {
     min-width: 140px;
     right: -10px;
   }
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  color: #667eea;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assistant-msg:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
 }

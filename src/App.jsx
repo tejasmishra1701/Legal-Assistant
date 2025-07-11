@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
-import { FaUserCircle } from 'react-icons/fa'
+import { FaUserCircle, FaCopy } from 'react-icons/fa' // Add FaCopy import
 import './App.css'
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
   const [sessionId] = useState(() => crypto.randomUUID()) // Generate session ID once
   const [profileOpen, setProfileOpen] = useState(false);
   const inputRef = useRef(null) // Add ref for input element
+  const messagesEndRef = useRef(null) // Add this ref
 
   const handleSend = async (e) => {
     e.preventDefault()
@@ -71,6 +72,22 @@ function App() {
     return <span>{dots}</span>;
   };
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages]) // Scroll when messages update
+
+  const handleCopy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+
   return (
     <>
     
@@ -110,6 +127,15 @@ function App() {
         <div className="messages">
           {messages.map((msg, idx) => (
             <div key={idx} className={msg.role === 'user' ? 'user-msg' : 'assistant-msg'}>
+              {msg.role === 'assistant' && (
+                <button 
+                  className="copy-button"
+                  onClick={() => handleCopy(msg.content)}
+                  title="Copy to clipboard"
+                >
+                  <FaCopy />
+                </button>
+              )}
               {msg.role === 'assistant'
                 ? <ReactMarkdown>{msg.content}</ReactMarkdown>
                 : msg.content}
@@ -121,6 +147,7 @@ function App() {
               <TypingDots />
             </div>
           )}
+          <div ref={messagesEndRef} /> {/* Add this invisible element */}
         </div>
         <form className="chat-input" onSubmit={handleSend}>
           <input
