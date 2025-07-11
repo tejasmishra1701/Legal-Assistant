@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
+import { FaUserCircle } from 'react-icons/fa'
 import './App.css'
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [sessionId] = useState(() => crypto.randomUUID()) // Generate session ID once
+  const [profileOpen, setProfileOpen] = useState(false);
+  const inputRef = useRef(null) // Add ref for input element
 
   const handleSend = async (e) => {
     e.preventDefault()
@@ -20,7 +23,7 @@ function App() {
 
     // Add user message
     setMessages((msgs) => [...msgs, { role: 'user', content: input }])
-    setInput('') // <-- Clear input immediately
+    setInput('') // Clear input immediately
     setLoading(true)
 
     try {
@@ -69,33 +72,69 @@ function App() {
   };
 
   return (
-    <div className={`chat-container ${isExpanded ? 'expanded' : 'compact'}`}>
-      <div className="messages">
-        {messages.map((msg, idx) => (
-          <div key={idx} className={msg.role === 'user' ? 'user-msg' : 'assistant-msg'}>
-            {msg.role === 'assistant'
-              ? <ReactMarkdown>{msg.content}</ReactMarkdown>
-              : msg.content}
+    <>
+    
+      <nav className="navbar">
+        <div className="navbar-left">
+          <img src="/Logo.png" alt="Logo" className="navbar-logo-image" />
+          <span className="navbar-logo">LegalAI</span>
+        </div>
+        <div className="navbar-right">
+          <button className="navbar-btn" tabIndex={0}>Contact Us</button>
+          <button className="navbar-btn" tabIndex={0}>Feedback</button>
+          <div className="navbar-profile">
+            <button
+              className="profile-icon-btn"
+              onClick={() => setProfileOpen(v => !v)}
+              tabIndex={0}
+              aria-label="Profile"
+            >
+              <FaUserCircle size={30} />
+            </button>
+            {profileOpen && (
+              <div className="profile-dropdown" onMouseLeave={() => setProfileOpen(false)}>
+                <div className="profile-dropdown-item">Profile</div>
+                <div className="profile-dropdown-item">Active Plan</div>
+                <div className="profile-dropdown-item">My Documents</div>
+                <div className="profile-dropdown-divider" />
+                <div className="profile-dropdown-item logout">Log Out</div>
+              </div>
+            )}
           </div>
-        ))}
-        {loading && (
-          <div className="assistant-msg">
-            Thinking
-            <TypingDots />
-          </div>
-        )}
+        </div>
+      </nav>
+      <div className="chat-header">
+        <h2 className="header-text">Hello Your Honour! How may I help you?</h2>
       </div>
-      <form className="chat-input" onSubmit={handleSend}>
-        <input
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder="Type your question..."
-          disabled={loading}
-        />
-        <button type="submit" disabled={loading || !input.trim()}>Send</button>
-      </form>
-    </div>
+      <div className={`chat-container ${isExpanded ? 'expanded' : 'compact'}`}>
+        <div className="messages">
+          {messages.map((msg, idx) => (
+            <div key={idx} className={msg.role === 'user' ? 'user-msg' : 'assistant-msg'}>
+              {msg.role === 'assistant'
+                ? <ReactMarkdown>{msg.content}</ReactMarkdown>
+                : msg.content}
+            </div>
+          ))}
+          {loading && (
+            <div className="assistant-msg">
+              Thinking
+              <TypingDots />
+            </div>
+          )}
+        </div>
+        <form className="chat-input" onSubmit={handleSend}>
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            placeholder="Type your question..."
+            disabled={loading}
+          />
+          <button type="submit" disabled={loading || !input.trim()}>Send</button>
+        </form>
+      </div>
+    </>
   )
 }
 
