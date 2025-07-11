@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
 import './App.css'
 
 function App() {
@@ -71,7 +72,9 @@ function App() {
       <div className="messages">
         {messages.map((msg, idx) => (
           <div key={idx} className={msg.role === 'user' ? 'user-msg' : 'assistant-msg'}>
-            {msg.content}
+            {msg.role === 'assistant'
+              ? <ReactMarkdown>{msg.content}</ReactMarkdown>
+              : msg.content}
           </div>
         ))}
         {loading && (
