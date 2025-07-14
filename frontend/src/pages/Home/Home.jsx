@@ -39,7 +39,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="pricing">
+      {/* <section className="pricing">
         <h2>Choose Your Plan</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
@@ -82,7 +82,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
