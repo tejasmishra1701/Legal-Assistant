@@ -6,7 +6,7 @@ import './Auth.css'
 
 const SEND_OTP_URL = 'https://tejasworking.app.n8n.cloud/webhook/send-verification'
 const VERIFY_OTP_URL = 'https://tejasworking.app.n8n.cloud/webhook/otp-verify'
-const REGISTER_URL = 'https://tejasworking.app.n8n.cloud/webhook/register'
+const REGISTER_URL = 'http://localhost:5000/api/auth/register'
 
 export default function Signup({ onSignupSuccess }) {
   const [step, setStep] = useState(1)

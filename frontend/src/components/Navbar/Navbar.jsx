@@ -5,7 +5,7 @@ import { useState } from 'react'
 import './Navbar.css'
 
 function Navbar() {
-  const { user, logout } = useAuth()
+  const { token, logout } = useAuth()
   const [profileOpen, setProfileOpen] = useState(false)
 
   return (
@@ -17,7 +17,7 @@ function Navbar() {
         </Link>
       </div>
       <div className="navbar-right">
-        {user ? (
+        {token ? (
           <>
             <Link to="/chat" className="navbar-btn">Chat</Link>
             <div className="navbar-profile">
