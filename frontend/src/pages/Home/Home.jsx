@@ -25,11 +25,7 @@ function Home() {
             <h3>Document Creation</h3>
             <p>Generate legal documents with AI assistance in minutes</p>
           </div>
-          <div className="feature-card">
-            <div className="feature-icon">⚖️</div>
-            <h3>Legal Guidance</h3>
-            <p>Get instant answers to your legal queries</p>
-          </div>
+          
           <div className="feature-card">
             <div className="feature-icon">🔒</div>
             <h3>Secure & Confidential</h3>
