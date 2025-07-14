@@ -25,17 +25,18 @@ function Navbar() {
                 className="profile-icon-btn"
                 onClick={() => setProfileOpen(v => !v)}
               >
-                <FaUserCircle size={30} />
+                <FaUserCircle className="profile-icon" />
               </button>
               {profileOpen && (
                 <div className="profile-dropdown" onMouseLeave={() => setProfileOpen(false)}>
-                  <Link to="/profile" className="profile-dropdown-item">Profile</Link>
+                  
                   <Link to="/plans" className="profile-dropdown-item">Active Plan</Link>
                   <div className="profile-dropdown-divider" />
                   <button onClick={logout} className="profile-dropdown-item logout">
                     Log Out
                   </button>
                 </div>
+
               )}
             </div>
           </>

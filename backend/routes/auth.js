@@ -22,21 +22,48 @@ const signToken = (user) => {
 router.post('/verify-otp', async (req, res) => {
   const { email, otp } = req.body
   if (!email || !otp) return res.status(400).json({ msg: 'Email and OTP required' })
-  const record = await Otp.findOne({ email, otp })
+
+  // Always compare as strings
+  const record = await Otp.findOne({ email: String(email), otp: String(otp), type: 'email_verification' })
+
   if (!record) return res.status(400).json({ msg: 'Invalid OTP' })
+
+  // Optional: Check expiry
+  if (record.expiry && new Date(record.expiry) < new Date()) {
+    return res.status(400).json({ msg: 'OTP expired' })
+  }
+
   res.json({ success: true })
 })
 
 // 2. Register user (after OTP)
 router.post('/register', async (req, res) => {
-  const { email, password, firstName, lastName, age, gender, occupation, city, state, phone } = req.body
-  if (!email || !password) return res.status(400).json({ msg: 'Email and password required' })
-  const existing = await User.findOne({ email })
-  if (existing) return res.status(400).json({ msg: 'User already exists' })
-  const hash = await bcrypt.hash(password, 10)
-  const user = new User({ email, password: hash, firstName, lastName, age, gender, occupation, city, state, phone })
-  await user.save()
-  res.json({ success: true })
+  try {
+    const { email, password, firstName, lastName, age, gender, occupation, city, state, phone } = req.body
+    
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10)
+    
+    // Create user
+    const user = new User({
+      email,
+      password: hashedPassword,
+      firstName,
+      lastName,
+      age,
+      gender,
+      occupation,
+      city,
+      state,
+      phone
+    })
+    
+    await user.save()
+    res.json({ success: true })
+  } catch (err) {
+    console.error('Registration error:', err)
+    res.status(500).json({ success: false, msg: err.message })
+  }
 })
 
 // 3. Login

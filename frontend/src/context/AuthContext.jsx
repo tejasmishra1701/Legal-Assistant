@@ -1,25 +1,24 @@
-import { createContext, useState, useContext, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
-const AuthContext = createContext({})
+const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [token, setToken] = useState(sessionStorage.getItem('token'))
 
-  const login = async (email, password) => {
-    // Implement login logic
-  }
-
-  const signup = async (email, password, name) => {
-    // Implement signup logic
+  const login = (newToken) => {
+    setToken(newToken)
+    sessionStorage.setItem('token', newToken)
   }
 
   const logout = () => {
-    // Implement logout logic
+    setToken(null)
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('userEmail')
+    sessionStorage.removeItem('sessionId')
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout, loading }}>
+    <AuthContext.Provider value={{ token, login, logout }}>
       {children}
     </AuthContext.Provider>
   )

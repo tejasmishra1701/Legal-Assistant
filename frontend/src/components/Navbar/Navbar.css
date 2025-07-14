@@ -66,7 +66,12 @@ a {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  
+  transition: transform 0.2s ease;
+}
 .profile-dropdown {
   position: absolute;
   top: 48px;
@@ -77,14 +82,67 @@ a {
   box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
+  z-index: 1000; /* Ensure dropdown appears above other content */
+  backdrop-filter: blur(10px); /* Add glass effect */
 }
 
 .profile-dropdown-item {
+  display: block; /* Make links behave like block elements */
+  width: 100%; /* Full width */
   padding: 12px 24px;
   color: #e2e8f0;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.18s ease;
+  background-color: transparent;
+  text-decoration: none; /* Remove underlines from links */
+  border: none; /* Remove button borders */
+  text-align: left; /* Align text to left */
+  font-family: inherit; /* Use parent font */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.profile-dropdown-item:hover {
+  background-color: rgba(102, 126, 234, 0.15);
+  color: #ffffff;
+  transform: translateX(2px); /* Subtle slide effect on hover */
+}
+
+.profile-dropdown-item:focus {
+  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline-offset: -2px;
+}
+
+.profile-dropdown-item.logout {
+  color: #f87171; /* Red color for logout */
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Visual separator */
+}
+
+.profile-dropdown-item.logout:hover {
+  background-color: rgba(248, 113, 113, 0.15);
+  color: #fca5a5;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 8px 0;
+}
+
+/* Optional: Add smooth entrance animation */
+.profile-dropdown {
+  animation: dropdownFadeIn 0.2s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */

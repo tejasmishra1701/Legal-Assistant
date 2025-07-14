@@ -2,23 +2,38 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar/Navbar'
 import ChatInterface from './components/Chat/ChatInterface'
 import Home from './pages/Home/Home'
+import SignupPage from './pages/Signup/SignupPage'
+import LoginPage from './pages/Login/LoginPage'
+import { AuthProvider } from './context/AuthContext'
+import PrivateRoute from './utils/PrivateRoute'
 import './App.css'
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/chat" element={<ChatInterface />} />
-            <Route path="*" element={<Navigate to="/home" replace />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="app">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Navigate to="/home" replace />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/chat"
+                element={
+                  <PrivateRoute>
+                    <ChatInterface />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="*" element={<Navigate to="/home" replace />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </AuthProvider>
   )
 }
 
