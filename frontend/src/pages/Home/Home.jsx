@@ -39,12 +39,12 @@ function Home() {
         </div>
       </section>
 
-      {/* <section className="pricing">
+      <section className="pricing">
         <h2>Choose Your Plan</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
             <h3>Basic</h3>
-            <div className="price">$29<span>/month</span></div>
+            <div className="price">₹299<span>/month</span></div>
             <ul className="benefits">
               <li>✓ 100 AI Queries</li>
               <li>✓ Basic Document Templates</li>
@@ -57,7 +57,7 @@ function Home() {
           <div className="pricing-card featured">
             <div className="featured-tag">Popular</div>
             <h3>Professional</h3>
-            <div className="price">$49<span>/month</span></div>
+            <div className="price">₹499<span>/month</span></div>
             <ul className="benefits">
               <li>✓ Unlimited AI Queries</li>
               <li>✓ All Document Templates</li>
@@ -70,7 +70,7 @@ function Home() {
           </div>
           <div className="pricing-card">
             <h3>Enterprise</h3>
-            <div className="price">$99<span>/month</span></div>
+            <div className="price">₹999<span>/month</span></div>
             <ul className="benefits">
               <li>✓ Everything in Professional</li>
               <li>✓ API Access</li>
@@ -82,7 +82,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   )
 }
