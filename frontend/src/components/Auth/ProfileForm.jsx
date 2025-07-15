@@ -63,7 +63,7 @@ export default function ProfileForm({ onSubmit, loading }) {
 
     try {
       // Send to n8n webhook and wait for response
-      const response = await axios.post('https://tejasworking.app.n8n.cloud/webhook/user-profile', form)
+      const response = await axios.post('https://mishratejass01.app.n8n.cloud/webhook/user-profile', form)
       
       // Check for successful profile setup
       if (response.data.output === "Profile Setup Successfully") {

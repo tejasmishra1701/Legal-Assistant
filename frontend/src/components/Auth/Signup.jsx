@@ -4,8 +4,8 @@ import OtpInput from './OtpInput'
 import ProfileForm from './ProfileForm'
 import './Auth.css'
 
-const SEND_OTP_URL = 'https://tejasworking.app.n8n.cloud/webhook/send-verification'
-const VERIFY_OTP_URL = 'https://tejasworking.app.n8n.cloud/webhook/otp-verify'
+const SEND_OTP_URL = 'https://mishratejass01.app.n8n.cloud/webhook/send-verification'
+const VERIFY_OTP_URL = 'https://mishratejass01.app.n8n.cloud/webhook/otp-verify'
 const REGISTER_URL = 'http://localhost:5000/api/auth/register'
 
 export default function Signup({ onSignupSuccess }) {

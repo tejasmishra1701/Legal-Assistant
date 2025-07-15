@@ -25,7 +25,7 @@ function ChatInterface() {
     setLoading(true)
 
     try {
-      const res = await fetch('https://tejasworking.app.n8n.cloud/webhook/legal-assistant', {
+      const res = await fetch('https://mishratejass01.app.n8n.cloud/webhook/legal-assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: input, sessionId }),

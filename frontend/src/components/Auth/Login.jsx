@@ -4,10 +4,10 @@ import axios from 'axios'
 import OtpInput from './OtpInput'
 import './Auth.css'
 
-const LOGIN_URL = 'https://tejasworking.app.n8n.cloud/webhook/login'
-const RESET_PASSWORD_URL = 'https://tejasworking.app.n8n.cloud/webhook/reset-password'
-const VERIFY_RESET_OTP_URL = 'https://tejasworking.app.n8n.cloud/webhook/reset-otp-verify'
-const SET_NEW_PASSWORD_URL = 'https://tejasworking.app.n8n.cloud/webhook/set-password'
+const LOGIN_URL = 'https://mishratejass01.app.n8n.cloud/webhook/login'
+const RESET_PASSWORD_URL = 'https://mishratejass01.app.n8n.cloud/webhook/reset-password'
+const VERIFY_RESET_OTP_URL = 'https://mishratejass01.app.n8n.cloud/webhook/reset-otp-verify'
+const SET_NEW_PASSWORD_URL = 'https://mishratejass01.app.n8n.cloud/webhook/set-password'
 
 export default function Login({ onLoginSuccess }) {
   const navigate = useNavigate()
