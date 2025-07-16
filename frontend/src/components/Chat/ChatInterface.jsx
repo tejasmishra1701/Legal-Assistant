@@ -9,6 +9,7 @@ function ChatInterface() {
   const [loading, setLoading] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [sessionId] = useState(() => crypto.randomUUID())
+  const [touchStart, setTouchStart] = useState(null)
   const inputRef = useRef(null)
   const messagesEndRef = useRef(null)
 
@@ -83,12 +84,31 @@ function ChatInterface() {
     }
   }
 
+  const handleTouchStart = (e) => {
+    if (window.innerWidth <= 768) {
+      const touch = e.touches[0];
+      setTouchStart(touch.clientY);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStart && window.innerWidth <= 768) {
+      const touch = e.touches[0];
+      const diff = touchStart - touch.clientY;
+      
+      if (Math.abs(diff) > 50) {
+        // Prevent default scroll when interacting with chat
+        e.preventDefault();
+      }
+    }
+  };
+
   return (
     <>
       <div className="chat-header">
         <h2 className="header-text">Hello Your Honour! How may I help you?</h2>
       </div>
-      <div className={`chat-container ${isExpanded ? 'expanded' : 'compact'}`}>
+      <div className={`chat-container ${isExpanded ? 'expanded' : 'compact'}`} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
         <div className="messages">
           {messages.map((msg, idx) => (
             <div key={idx} className={msg.role === 'user' ? 'user-msg' : 'assistant-msg'}>
