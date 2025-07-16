@@ -194,27 +194,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+  .hero h1 {
+    font-size: 3rem;
   }
-
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .features-grid,
   .pricing-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    padding: 0 16px;
   }
-
-  .hero-content {
-    padding: 2rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .feature-card {
-    padding: 1rem;
+  
+  .pricing-card.featured {
+    transform: scale(1);
   }
 }
