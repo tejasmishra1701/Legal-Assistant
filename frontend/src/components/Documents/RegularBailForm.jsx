@@ -58,7 +58,7 @@ function RegularBailForm() {
     setError('');
 
     try {
-      const response = await fetch('https://mishratejass01.app.n8n.cloud/webhook-test/regular-bail', {
+      const response = await fetch('https://mishratejass01.app.n8n.cloud/webhook/regular-bail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
