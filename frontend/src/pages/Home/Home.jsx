@@ -21,6 +21,12 @@ function Home() {
         <h2>Why Choose LegalAI?</h2>
         <div className="features-grid">
           <div className="feature-card">
+            <div className="feature-icon">🤖</div>
+            <h3>AI-Powered Assistance</h3>
+            <p>Get instant answers to your legal queries with our AI chatbot</p>
+          </div>
+
+          <div className="feature-card">
             <div className="feature-icon">📝</div>
             <h3>Document Creation</h3>
             <p>Generate legal documents with AI assistance in minutes</p>

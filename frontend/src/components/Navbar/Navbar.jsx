@@ -20,6 +20,7 @@ function Navbar() {
         {token ? (
           <>
             <Link to="/chat" className="navbar-btn">Chat</Link>
+            <Link to="/documents" className="navbar-btn">Documents</Link>
             <div className="navbar-profile">
               <button
                 className="profile-icon-btn"

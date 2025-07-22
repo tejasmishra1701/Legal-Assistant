@@ -6,6 +6,8 @@ import SignupPage from './pages/Signup/SignupPage'
 import LoginPage from './pages/Login/LoginPage'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './utils/PrivateRoute'
+import Documents from './components/Documents/Documents'
+import RegularBailForm from './components/Documents/RegularBailForm'
 import './App.css'
 
 function App() {
@@ -25,6 +27,22 @@ function App() {
                 element={
                   <PrivateRoute>
                     <ChatInterface />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents"
+                element={
+                  <PrivateRoute>
+                    <Documents />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/regular-bail-form"
+                element={
+                  <PrivateRoute>
+                    <RegularBailForm />
                   </PrivateRoute>
                 }
               />
