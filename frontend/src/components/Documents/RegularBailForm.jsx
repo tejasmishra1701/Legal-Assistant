@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RegularBailForm.css';
-
+import PdfPreviewModal from './PdfPreviewModal';
+import html2pdf from 'html2pdf.js';
+import jsPDF from 'jspdf';
 function RegularBailForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -38,6 +40,9 @@ function RegularBailForm() {
     proposedSureties: '',
     additionalInfo: ''
   });
+  
+  const [htmlContent, setHtmlContent] = useState(null);
+  const [showPreview, setShowPreview] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,16 +67,45 @@ function RegularBailForm() {
       });
 
       if (response.ok) {
-        alert('Bail application submitted successfully!');
-        navigate('/documents');
+        const data = await response.json();
+        setHtmlContent(data.output);
+        setShowPreview(true);
       } else {
         throw new Error('Submission failed');
       }
     } catch (error) {
       setError('Failed to submit bail application. Please try again.');
+      console.error(error);
     } finally {
       setLoading(false);
     }
+  };
+
+  // FIXED DOWNLOAD FUNCTION
+  const handleDownload = () => {
+    // if (!htmlContent) {
+    //   console.error('No HTML content available for download');
+    //   return;
+    // }
+
+    // const opt = {
+    //   margin:       0.5,
+    //   filename:     `bail_application_${formData.accusedName.replace(/\s+/g, '_') || 'document'}.pdf`,
+    //   image:        { type: 'png', quality: 1.0 }, // Set quality to max
+    //   html2canvas:  {
+    //     scale: 2,
+    //     useCORS: true,
+    //     backgroundColor: null,
+    //     // --- NEW OPTIONS FOR HIGH-QUALITY RENDER ---
+    //     dpi: 300, // Increase dots per inch for print quality
+    //     letterRendering: true, // Improve text rendering
+    //   },
+    //   jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    // };
+
+    html2pdf(htmlContent, {
+      margin: 19,
+    });
   };
 
   return (
@@ -394,10 +428,21 @@ function RegularBailForm() {
             Cancel
           </button>
           <button type="submit" disabled={loading}>
-            {loading ? 'Submitting...' : 'Submit Application'}
+            {loading ? 'Generating Document...' : 'Submit Application'}
           </button>
         </div>
       </form>
+
+      {showPreview && htmlContent && (
+        <PdfPreviewModal
+          htmlContent={htmlContent}
+          onClose={() => {
+            setShowPreview(false);
+            setHtmlContent(null);
+          }}
+          onDownload={handleDownload}
+        />
+      )}
     </div>
   );
 }
