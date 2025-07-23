@@ -1,8 +1,7 @@
-import React from 'react';
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import { BailApplicationPDF } from './BailApplicationPDF'; // Import the document component
 
-const PdfPreviewModal = ({ data, onClose }) => {
+const PdfPreviewModal = ({ data, onClose, onWordDownload }) => {
   return (
     <div className="pdf-modal-overlay">
       <div className="pdf-modal">
@@ -28,6 +27,10 @@ const PdfPreviewModal = ({ data, onClose }) => {
               </button>
             )}
           </PDFDownloadLink>
+          
+          <button className="download-btn" onClick={onWordDownload}>
+            📝 Download Word Document
+          </button>
           <button onClick={onClose} className="close-btn">Close</button>
         </div>
       </div>
