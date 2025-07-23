@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RegularBailForm.css';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { BailApplicationPDF } from './BailApplicationPDF';
 import PdfPreviewModal from './PdfPreviewModal';
-import html2pdf from 'html2pdf.js';
-import jsPDF from 'jspdf';
 function RegularBailForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [pdfData, setPdfData] = useState(null);
+  const [showPreview, setShowPreview] = useState(false);
+
   const [formData, setFormData] = useState({
     // Personal Information
     accusedName: '',
@@ -40,9 +43,6 @@ function RegularBailForm() {
     proposedSureties: '',
     additionalInfo: ''
   });
-  
-  const [htmlContent, setHtmlContent] = useState(null);
-  const [showPreview, setShowPreview] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,6 +56,7 @@ function RegularBailForm() {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setPdfData(null);
 
     try {
       const response = await fetch('https://mishratejass01.app.n8n.cloud/webhook/regular-bail', {
@@ -68,44 +69,17 @@ function RegularBailForm() {
 
       if (response.ok) {
         const data = await response.json();
-        setHtmlContent(data.output);
+        setPdfData(Array.isArray(data) ? data[0] : data); // Use the first object if it's an array
         setShowPreview(true);
       } else {
         throw new Error('Submission failed');
       }
-    } catch (error) {
-      setError('Failed to submit bail application. Please try again.');
-      console.error(error);
+    } catch (err) {
+      setError('Failed to generate application. Please try again.');
+      console.error(err);
     } finally {
       setLoading(false);
     }
-  };
-
-  // FIXED DOWNLOAD FUNCTION
-  const handleDownload = () => {
-    // if (!htmlContent) {
-    //   console.error('No HTML content available for download');
-    //   return;
-    // }
-
-    // const opt = {
-    //   margin:       0.5,
-    //   filename:     `bail_application_${formData.accusedName.replace(/\s+/g, '_') || 'document'}.pdf`,
-    //   image:        { type: 'png', quality: 1.0 }, // Set quality to max
-    //   html2canvas:  {
-    //     scale: 2,
-    //     useCORS: true,
-    //     backgroundColor: null,
-    //     // --- NEW OPTIONS FOR HIGH-QUALITY RENDER ---
-    //     dpi: 300, // Increase dots per inch for print quality
-    //     letterRendering: true, // Improve text rendering
-    //   },
-    //   jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-    // };
-
-    html2pdf(htmlContent, {
-      margin: 19,
-    });
   };
 
   return (
@@ -432,16 +406,24 @@ function RegularBailForm() {
           </button>
         </div>
       </form>
-
-      {showPreview && htmlContent && (
-        <PdfPreviewModal
-          htmlContent={htmlContent}
-          onClose={() => {
-            setShowPreview(false);
-            setHtmlContent(null);
-          }}
-          onDownload={handleDownload}
-        />
+      {showPreview && pdfData && (
+        <PdfPreviewModal data={pdfData} onClose={() => setShowPreview(false)} />
+      )}
+      {pdfData && (
+        <div className="download-section">
+          <h2>Application Ready</h2>
+          <p>Your bail application has been generated successfully.</p>
+          <PDFDownloadLink
+            document={<BailApplicationPDF data={pdfData} />}
+            fileName={`Bail_Application_${pdfData.parties?.applicant?.name?.replace(/\s+/g, '_') || 'document'}.pdf`}
+          >
+            {({ loading: pdfLoading }) => (
+              <button className="download-btn" disabled={pdfLoading}>
+                {pdfLoading ? 'Loading document...' : '📄 Download PDF'}
+              </button>
+            )}
+          </PDFDownloadLink>
+        </div>
       )}
     </div>
   );
