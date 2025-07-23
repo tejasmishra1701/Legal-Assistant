@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './RegularBailForm.css';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { BailApplicationPDF } from './BailApplicationPDF';
-import PdfPreviewModal from './PdfPreviewModal';
+import PdfPreviewModal from '../PdfPreviewModal';
 import {
   Document,
   Packer,
@@ -82,7 +82,6 @@ function RegularBailForm() {
       if (response.ok) {
         const data = await response.json();
         setPdfData(Array.isArray(data) ? data[0] : data); // Use the first object if it's an array
-        console.log('PDF Data:', pdfData.courtDetails);
         setShowPreview(true);
       } else {
         throw new Error('Submission failed');
@@ -650,19 +649,21 @@ const handleWordDownload = (pdfData) => {
         <div className="download-section">
           <h2>Application Ready</h2>
           <p>Your bail application has been generated successfully.</p>
-          <PDFDownloadLink
-            document={<BailApplicationPDF data={pdfData} />}
-            fileName={`Bail_Application_${pdfData.parties?.applicant?.name?.replace(/\s+/g, '_') || 'document'}.pdf`}
-          >
-            {({ loading: pdfLoading }) => (
-              <button className="download-btn" disabled={pdfLoading}>
-                {pdfLoading ? 'Loading document...' : '📄 Download PDF'}
-              </button>
-            )}
-          </PDFDownloadLink>
-          <button className="download-btn" onClick={() => handleWordDownload(pdfData)}>
-            📝 Download Word Document
-          </button>
+          <div className="download-buttons-row">
+            <PDFDownloadLink
+              document={<BailApplicationPDF data={pdfData} />}
+              fileName={`Bail_Application_${pdfData.parties?.applicant?.name?.replace(/\s+/g, '_') || 'document'}.pdf`}
+            >
+              {({ loading: pdfLoading }) => (
+                <button className="download-btn" disabled={pdfLoading}>
+                  {pdfLoading ? 'Loading document...' : '📄 Download PDF'}
+                </button>
+              )}
+            </PDFDownloadLink>
+            <button className="download-btn" onClick={() => handleWordDownload(pdfData)}>
+              📝 Download Word Document
+            </button>
+          </div>
         </div>
       )}
     </div>

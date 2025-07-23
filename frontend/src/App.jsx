@@ -7,7 +7,7 @@ import LoginPage from './pages/Login/LoginPage'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './utils/PrivateRoute'
 import Documents from './components/Documents/Documents'
-import RegularBailForm from './components/Documents/RegularBailForm'
+import RegularBailForm from './components/Documents/BailApplication/RegularBailForm'
 import './App.css'
 
 function App() {

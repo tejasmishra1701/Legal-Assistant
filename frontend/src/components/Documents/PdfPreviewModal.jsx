@@ -1,5 +1,5 @@
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
-import { BailApplicationPDF } from './BailApplicationPDF'; // Import the document component
+import { BailApplicationPDF } from './BailApplication/BailApplicationPDF'; // Import the document component
 
 const PdfPreviewModal = ({ data, onClose, onWordDownload }) => {
   return (
