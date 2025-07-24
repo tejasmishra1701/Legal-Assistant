@@ -4,7 +4,7 @@ import './AnticipatorybailForm.css';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { AnticipatorybailApplicationPDF } from './AnticipatorybailApplicationPDF';
 import PdfPreviewModal from '../PdfPreviewModal';
-import AnticipatorybailPDFPreviewModal from './AnticipatorybailPdfPreviewModal';
+import AnticipatorybailPdfPreviewModal from './AnticipatorybailPDFPreviewModal.jsx';
 import {
   Document,
   Packer,
@@ -713,7 +713,7 @@ function AnticipatorybailForm() {
       </form>
       
       {showPreview && pdfData && (
-        <AnticipatorybailPDFPreviewModal
+        <AnticipatorybailPdfPreviewModal
           data={pdfData}
           onClose={() => setShowPreview(false)}
           onWordDownload={() => handleWordDownload(pdfData)}
