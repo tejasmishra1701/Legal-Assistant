@@ -10,6 +10,7 @@ import Documents from './components/Documents/Documents'
 import RegularBailForm from './components/Documents/BailApplication/RegularBailForm'
 import './App.css'
 import AnticipatorybailForm from './components/Documents/AnticipatoryBailApplication/AnticipatorybailForm.jsx'
+import Section138ComplaintForm from './components/Documents/Section138Complaint/Section138ComplaintForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -51,6 +52,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <AnticipatorybailForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/section-138-complaint-form"
+                element={
+                  <PrivateRoute>
+                    <Section138ComplaintForm />
                   </PrivateRoute>
                 }
               />

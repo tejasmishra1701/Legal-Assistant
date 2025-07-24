@@ -37,7 +37,7 @@ function Documents() {
           </button>
         </div>
         <div className="document-card">
-          <h2>Complaint Under Section 138 of CrPC</h2>
+          <h2>Complaint Under Section 138 of the Negotiable Instruments Act</h2>
           <p>
             A comprehensive application for filing a complaint under Section 138 of the Negotiable Instruments Act. 
             This document includes all necessary details about the parties involved, the cheque in question, 
@@ -45,7 +45,7 @@ function Documents() {
           </p>
           <button 
             className="create-doc-btn"
-            onClick={() => navigate('/documents/complaint-138-form')}
+            onClick={() => navigate('/documents/section-138-complaint-form')}
           >
             Create Document
           </button>
