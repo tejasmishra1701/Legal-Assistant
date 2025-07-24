@@ -11,9 +11,7 @@ function Documents() {
         <div className="document-card">
           <h2>Regular Bail Application</h2>
           <p>
-            A comprehensive application for seeking regular bail under Section 439 of CrPC. 
-            This document includes all necessary details about the accused, case particulars, 
-            and grounds for bail application.
+            An application filed on behalf of an arrested person seeking release from custody, presenting the grounds for bail while the investigation or trial is pending.
           </p>
           <button 
             className="create-doc-btn"
@@ -25,9 +23,7 @@ function Documents() {
         <div className="document-card">
           <h2>Anticipatory Bail Application</h2>
           <p>
-            A comprehensive application for seeking anticipatory bail under Section 438 of CrPC. 
-            This document includes all necessary details about the accused, case particulars, 
-            and grounds for anticipatory bail application.
+            A pre-arrest bail application under Section 438 CrPC for a person who apprehends arrest in a false case, seeking a court order to grant bail if an arrest occurs.
           </p>
           <button 
             className="create-doc-btn"
@@ -39,9 +35,7 @@ function Documents() {
         <div className="document-card">
           <h2>Complaint Under Section 138 </h2>
           <p>
-            A comprehensive application for filing a complaint under Section 138 of the Negotiable Instruments Act. 
-            This document includes all necessary details about the parties involved, the cheque in question, 
-            and the grounds for the complaint.
+            A criminal complaint under Section 138, Negotiable Instruments Act, when a cheque is dishonoured (bounced) and the issuer fails to pay despite receiving a legal demand notice.
           </p>
           <button 
             className="create-doc-btn"
