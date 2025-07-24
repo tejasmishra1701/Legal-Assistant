@@ -9,7 +9,7 @@ import PrivateRoute from './utils/PrivateRoute'
 import Documents from './components/Documents/Documents'
 import RegularBailForm from './components/Documents/BailApplication/RegularBailForm'
 import './App.css'
-
+import AnticipatorybailForm from './components/Documents/AnticipatoryBailApplication/AnticipatorybailForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -43,6 +43,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <RegularBailForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/anticipatory-bail-form"
+                element={
+                  <PrivateRoute>
+                    <AnticipatorybailForm />
                   </PrivateRoute>
                 }
               />
