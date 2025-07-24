@@ -24,7 +24,9 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .document-card:hover {
@@ -38,11 +40,14 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  min-height: 160px;
 }
 
 .document-card p {
   color: #ece3f4;
   margin-bottom: 1.5rem;
+  flex-grow: 1;
+  max-height: 160px;
 }
 
 .create-doc-btn {

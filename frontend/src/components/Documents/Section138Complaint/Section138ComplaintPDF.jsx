@@ -114,13 +114,6 @@ export const Section138ComplaintPDF = ({ data }) => {
           </View>
           <Text style={styles.bold}>.....ACCUSED</Text>
         </View>
-        
-        {/*
-          THIS ENTIRE BLOCK HAS BEEN REMOVED BECAUSE 'chequeDetails'
-          DOES NOT EXIST IN YOUR API RESPONSE.
-          THE INFORMATION IS ALREADY IN THE 'facts' ARRAY.
-        */}
-        
         <Text style={styles.title}>{data.complaintTitle}</Text>
         <Text style={styles.bold}>{data.complaintBody.introduction}</Text>
         {data.complaintBody.facts.map((fact, index) => (

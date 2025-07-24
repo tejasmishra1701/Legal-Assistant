@@ -37,7 +37,7 @@ function Documents() {
           </button>
         </div>
         <div className="document-card">
-          <h2>Complaint Under Section 138 of the Negotiable Instruments Act</h2>
+          <h2>Complaint Under Section 138 </h2>
           <p>
             A comprehensive application for filing a complaint under Section 138 of the Negotiable Instruments Act. 
             This document includes all necessary details about the parties involved, the cheque in question, 
@@ -46,6 +46,20 @@ function Documents() {
           <button 
             className="create-doc-btn"
             onClick={() => navigate('/documents/section-138-complaint-form')}
+          >
+            Create Document
+          </button>
+        </div>
+        <div className="document-card">
+          <h2>Complaint Under Section 125 </h2>
+          <p>
+            A comprehensive application for filing a complaint under Section 125 of the Code of Criminal Procedure. 
+            This document includes all necessary details about the parties involved, the grounds for the complaint, 
+            and any supporting evidence.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/section-125-maintenance-form')}
           >
             Create Document
           </button>
