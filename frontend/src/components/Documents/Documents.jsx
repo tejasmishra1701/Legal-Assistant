@@ -6,7 +6,7 @@ function Documents() {
 
   return (
     <div className="documents-container">
-      <h1>Legal Document Templates</h1>
+      <h1>Generate Legal Documents within Seconds</h1>
       <div className="documents-grid">
         <div className="document-card">
           <h2>Regular Bail Application</h2>
