@@ -53,9 +53,7 @@ function Documents() {
         <div className="document-card">
           <h2>Complaint Under Section 125 </h2>
           <p>
-            A comprehensive application for filing a complaint under Section 125 of the Code of Criminal Procedure. 
-            This document includes all necessary details about the parties involved, the grounds for the complaint, 
-            and any supporting evidence.
+            A formal petition under Section 125 of CrPC for a wife, child, or parent to legally claim monthly financial support from a person who has neglected or refused to maintain them.
           </p>
           <button 
             className="create-doc-btn"
