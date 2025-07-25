@@ -15,6 +15,7 @@ import Section125MaintenanceForm from './components/Documents/Section125Maintena
 import OrderXXXVIIComplaintForm from './components/Documents/OrderXXXVII/OrderXXXVIIComplaintForm.jsx'
 import PermanentInjunctionForm from './components/Documents/PermanentInjunction/PermanentInjunctionForm.jsx'
 import TemporaryInjunctionForm from './components/Documents/TemporaryInjunction/TemporaryInjunctionForm.jsx'
+import EjectmentDamagesForm from './components/Documents/EjectmentDamages/EjectmentDamagesForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -96,6 +97,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <TemporaryInjunctionForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/ejectment-damages-form"
+                element={
+                  <PrivateRoute>
+                    <EjectmentDamagesForm />
                   </PrivateRoute>
                 }
               />

@@ -92,6 +92,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Suit for Ejectment and Damages</h2>
+          <p>
+            A suit seeking a court order for the eviction of a tenant and the recovery of damages for unauthorized occupation.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/ejectment-damages-form')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>
