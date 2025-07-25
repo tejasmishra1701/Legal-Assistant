@@ -57,7 +57,7 @@ function Documents() {
           </button>
         </div>
         <div className="document-card">
-          <h2>Suit under Order XXXVII of CPC </h2>
+          <h2>Suit under Order XXXVII (37) of CPC </h2>
           <p>
             A summary suit for the recovery of a debt or liquidated demand, where the defendant has no real defense.
           </p>
@@ -81,13 +81,25 @@ function Documents() {
           </button>
         </div>
         <div className="document-card">
-          <h2>Suit for Temporary Injunction</h2>
+          <h2>Suit for Temporary Injunction Rules 1 & 2</h2>
           <p>
             A suit seeking a court order to restrain a party from taking a particular action, typically to prevent harm or injury.
           </p>
           <button 
             className="create-doc-btn"
             onClick={() => navigate('/documents/temporary-injunction-form')}
+          >
+            Create Document
+          </button>
+        </div>
+        <div className="document-card">
+          <h2>Application Under Order XXXIX (39) Rule 2-A</h2>
+          <p>
+           A Suit for Order XXXIX Rule 2-A (Consequences of Disobedience of an Injunction).
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/temporary-injunction-form-2a')}
           >
             Create Document
           </button>

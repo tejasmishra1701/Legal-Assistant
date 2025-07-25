@@ -17,6 +17,7 @@ import PermanentInjunctionForm from './components/Documents/PermanentInjunction/
 import TemporaryInjunctionForm from './components/Documents/TemporaryInjunction/TemporaryInjunctionForm.jsx'
 import EjectmentDamagesForm from './components/Documents/EjectmentDamages/EjectmentDamagesForm.jsx'
 import IndigentPersonForm from './components/Documents/IndigentPersonApplication/IndigentPersonForm.jsx'
+import OrderXXXIXForm from './components/Documents/TemporaryInjunction2A/OrderXXXIXForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -114,6 +115,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <IndigentPersonForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/temporary-injunction-form-2a"
+                element={
+                  <PrivateRoute>
+                    <OrderXXXIXForm />
                   </PrivateRoute>
                 }
               />
