@@ -14,6 +14,7 @@ import Section138ComplaintForm from './components/Documents/Section138Complaint/
 import Section125MaintenanceForm from './components/Documents/Section125Maintenance/Section125MaintenanceForm.jsx'
 import OrderXXXVIIComplaintForm from './components/Documents/OrderXXXVII/OrderXXXVIIComplaintForm.jsx'
 import PermanentInjunctionForm from './components/Documents/PermanentInjunction/PermanentInjunctionForm.jsx'
+import TemporaryInjunctionForm from './components/Documents/TemporaryInjunction/TemporaryInjunctionForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -87,6 +88,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <PermanentInjunctionForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/temporary-injunction-form"
+                element={
+                  <PrivateRoute>
+                    <TemporaryInjunctionForm />
                   </PrivateRoute>
                 }
               />
