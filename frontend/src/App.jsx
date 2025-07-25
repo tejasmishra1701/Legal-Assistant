@@ -12,6 +12,7 @@ import './App.css'
 import AnticipatorybailForm from './components/Documents/AnticipatoryBailApplication/AnticipatorybailForm.jsx'
 import Section138ComplaintForm from './components/Documents/Section138Complaint/Section138ComplaintForm.jsx'
 import Section125MaintenanceForm from './components/Documents/Section125Maintenance/Section125MaintenanceForm.jsx'
+import OrderXXXVIIComplaintForm from './components/Documents/OrderXXXVII/OrderXXXVIIComplaintForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -69,6 +70,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Section125MaintenanceForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/order-37-suit-form"
+                element={
+                  <PrivateRoute>
+                    <OrderXXXVIIComplaintForm />
                   </PrivateRoute>
                 }
               />

@@ -56,7 +56,18 @@ function Documents() {
             Create Document
           </button>
         </div>
-        
+        <div className="document-card">
+          <h2>Suit under Order XXXVII of CPC </h2>
+          <p>
+            A summary suit for the recovery of a debt or liquidated demand, where the defendant has no real defense.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/order-37-suit-form')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>
