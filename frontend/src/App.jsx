@@ -13,6 +13,7 @@ import AnticipatorybailForm from './components/Documents/AnticipatoryBailApplica
 import Section138ComplaintForm from './components/Documents/Section138Complaint/Section138ComplaintForm.jsx'
 import Section125MaintenanceForm from './components/Documents/Section125Maintenance/Section125MaintenanceForm.jsx'
 import OrderXXXVIIComplaintForm from './components/Documents/OrderXXXVII/OrderXXXVIIComplaintForm.jsx'
+import PermanentInjunctionForm from './components/Documents/PermanentInjunction/PermanentInjunctionForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -78,6 +79,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <OrderXXXVIIComplaintForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/permanent-injunction-form"
+                element={
+                  <PrivateRoute>
+                    <PermanentInjunctionForm />
                   </PrivateRoute>
                 }
               />

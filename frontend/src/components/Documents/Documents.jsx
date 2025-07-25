@@ -68,6 +68,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Suit for Permanent Injunction</h2>
+          <p>
+            A suit seeking a court order to restrain a party from taking a particular action, typically to prevent harm or injury.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/permanent-injunction-form')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>
