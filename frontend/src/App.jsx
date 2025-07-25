@@ -110,7 +110,7 @@ function App() {
                 }
               />
               <Route
-                path="/documents/indigent-person-form"
+                path="/documents/indigent-person-application"
                 element={
                   <PrivateRoute>
                     <IndigentPersonForm />
