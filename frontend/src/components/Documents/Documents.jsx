@@ -104,6 +104,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Application to Sue as an Indigent Person</h2>
+          <p>
+            A formal request to the court for permission to file a lawsuit without paying the usual court fees, based on the claimant's inability to pay.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/indigent-person-application')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>
