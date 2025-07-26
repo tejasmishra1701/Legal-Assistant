@@ -164,6 +164,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Transfer Petition under Section 25 of CPC</h2>
+          <p>
+            A formal request to the court for the transfer of a case from one court to another.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/transfer-petition')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>

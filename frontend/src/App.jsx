@@ -21,6 +21,7 @@ import OrderXXXIXForm from './components/Documents/TemporaryInjunction2A/OrderXX
 import SpecificPerformanceForm from './components/Documents/SpecificPerformanceOfContract/SpecificPerformanceForm.jsx'
 import WrittenStatementForm from './components/Documents/WrittenStatement/WrittenStatementForm.jsx'
 import CaveatForm from './components/Documents/Caveat/CaveatForm.jsx'
+import TransferPetitionForm from './components/Documents/TransferPetition/TransferPetitionForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -150,6 +151,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <CaveatForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/transfer-petition"
+                element={
+                  <PrivateRoute>
+                    <TransferPetitionForm />
                   </PrivateRoute>
                 }
               />
