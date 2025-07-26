@@ -19,6 +19,7 @@ import EjectmentDamagesForm from './components/Documents/EjectmentDamages/Ejectm
 import IndigentPersonForm from './components/Documents/IndigentPersonApplication/IndigentPersonForm.jsx'
 import OrderXXXIXForm from './components/Documents/TemporaryInjunction2A/OrderXXXIXForm.jsx'
 import SpecificPerformanceForm from './components/Documents/SpecificPerformanceOfContract/SpecificPerformanceForm.jsx'
+import WrittenStatementForm from './components/Documents/WrittenStatement/WrittenStatementForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -132,6 +133,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <SpecificPerformanceForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/written-statement"
+                element={
+                  <PrivateRoute>
+                    <WrittenStatementForm />
                   </PrivateRoute>
                 }
               />

@@ -140,6 +140,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Written Statement</h2>
+          <p>
+            A formal response to a plaint in a civil suit, where the defendant presents their defense and counterclaims against the plaintiff's allegations.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/written-statement')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>
