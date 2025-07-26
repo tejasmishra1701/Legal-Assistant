@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './TransferPetitionForm.css';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { TransferPetitionApplicationPDF } from './TransferPetitionPDFApplication';
-import TransferPetitionPdfPreviewModal from './TransferPetitionPDFPreviewModal';
+import TransferPetitionPdfPreviewModal from './TransferPetitionPdfPreviewModal';
 import {
   Document,
   Packer,
