@@ -128,6 +128,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>A Suit for Specific Performance of Contract</h2>
+          <p>
+            A formal request to the court for specific performance of a contract, compelling the other party to fulfill their contractual obligations.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/specific-performance')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>

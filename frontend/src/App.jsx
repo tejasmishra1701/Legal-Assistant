@@ -18,6 +18,7 @@ import TemporaryInjunctionForm from './components/Documents/TemporaryInjunction/
 import EjectmentDamagesForm from './components/Documents/EjectmentDamages/EjectmentDamagesForm.jsx'
 import IndigentPersonForm from './components/Documents/IndigentPersonApplication/IndigentPersonForm.jsx'
 import OrderXXXIXForm from './components/Documents/TemporaryInjunction2A/OrderXXXIXForm.jsx'
+import SpecificPerformanceForm from './components/Documents/SpecificPerformanceOfContract/SpecificPerformanceForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -123,6 +124,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <OrderXXXIXForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/specific-performance"
+                element={
+                  <PrivateRoute>
+                    <SpecificPerformanceForm />
                   </PrivateRoute>
                 }
               />
