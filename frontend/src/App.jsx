@@ -20,6 +20,7 @@ import IndigentPersonForm from './components/Documents/IndigentPersonApplication
 import OrderXXXIXForm from './components/Documents/TemporaryInjunction2A/OrderXXXIXForm.jsx'
 import SpecificPerformanceForm from './components/Documents/SpecificPerformanceOfContract/SpecificPerformanceForm.jsx'
 import WrittenStatementForm from './components/Documents/WrittenStatement/WrittenStatementForm.jsx'
+import CaveatForm from './components/Documents/Caveat/CaveatForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -141,6 +142,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <WrittenStatementForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/caveat"
+                element={
+                  <PrivateRoute>
+                    <CaveatForm />
                   </PrivateRoute>
                 }
               />

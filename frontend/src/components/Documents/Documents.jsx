@@ -152,6 +152,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Caveat under Section 148A of CPC</h2>
+          <p>
+            A formal notice to the court requesting that no action be taken in a case without notifying the party who filed the caveat.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/caveat')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>
