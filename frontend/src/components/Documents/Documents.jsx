@@ -176,6 +176,18 @@ function Documents() {
             Create Document
           </button>
         </div>
+        <div className="document-card">
+          <h2>Petition for Restitution of Conjugal Rights</h2>
+          <p>
+            A formal request to the court for the restoration of conjugal rights between spouses.
+          </p>
+          <button 
+            className="create-doc-btn"
+            onClick={() => navigate('/documents/conjugal-rights')}
+          >
+            Create Document
+          </button>
+        </div>
       </div>
       
     </div>

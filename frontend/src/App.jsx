@@ -22,6 +22,7 @@ import SpecificPerformanceForm from './components/Documents/SpecificPerformanceO
 import WrittenStatementForm from './components/Documents/WrittenStatement/WrittenStatementForm.jsx'
 import CaveatForm from './components/Documents/Caveat/CaveatForm.jsx'
 import TransferPetitionForm from './components/Documents/TransferPetition/TransferPetitionForm.jsx'
+import ConjugalRightsForm from './components/Documents/ConjugalRights/ConjugalRIghtsForm.jsx'
 function App() {
   return (
     <AuthProvider>
@@ -159,6 +160,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <TransferPetitionForm />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/documents/conjugal-rights"
+                element={
+                  <PrivateRoute>
+                    <ConjugalRightsForm />
                   </PrivateRoute>
                 }
               />
